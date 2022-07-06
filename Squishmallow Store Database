@@ -1,0 +1,21 @@
+CREATE TABLE store_squishmallows (id INTEGER PRIMARY KEY, name TEXT, quantity INTEGER, price INTEGER, size TEXT, sold INTEGER);
+
+INSERT INTO store_squishmallows VALUES (1, "Penguin", 20, 5, "small", 5);
+INSERT INTO store_squishmallows VALUES (2, "Penguin", 10, 10, "medium", 7);
+INSERT INTO store_squishmallows VALUES (3, "Penguin", 5, 15, "large", 3);
+INSERT INTO store_squishmallows VALUES (4, "Penguin", 1, 20, "jumbo", 4);
+INSERT INTO store_squishmallows VALUES (5, "Monkey", 7, 5, "small", 8);
+INSERT INTO store_squishmallows VALUES (6, "Monkey", 9, 10, "medium", 11);
+INSERT INTO store_squishmallows VALUES (7, "Monkey", 1, 15, "large", 2);
+INSERT INTO store_squishmallows VALUES (8, "Monkey", 2, 20, "jumbo", 1);
+INSERT INTO store_squishmallows VALUES (9, "Kitten", 3, 5, "small", 5);
+INSERT INTO store_squishmallows VALUES (10, "Kitten", 4, 10, "medium", 8);
+INSERT INTO store_squishmallows VALUES (11, "Kitten", 7, 15, "large", 9);
+INSERT INTO store_squishmallows VALUES (12, "Kitten", 3, 20, "jumbo", 6);
+INSERT INTO store_squishmallows VALUES (13, "Puppy", 13, 5, "small", 2);
+INSERT INTO store_squishmallows VALUES (14, "Puppy", 4, 10, "medium",0);
+INSERT INTO store_squishmallows VALUES (15, "Puppy", 6, 15, "large", 4);
+INSERT INTO store_squishmallows VALUES (16, "Puppy", 3, 20, "jumbo", 7);
+
+SELECT * FROM store_squishmallows ORDER BY price;
+SELECT price, SUM(sold) FROM store_squishmallows GROUP BY price;
