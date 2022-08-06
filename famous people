@@ -1,0 +1,38 @@
+/* Create table about the people and what they do here */
+CREATE TABLE famous_people
+    (id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    age INTEGER,
+    birthday TEXT);
+    
+INSERT INTO famous_people (name, age, birthday) VALUES ("Morgan Freeman", "85", "6-1-1937");
+INSERT INTO famous_people (name, age, birthday) VALUES ("Leonardo DiCaprio", "47", "11-11-1974");
+INSERT INTO famous_people (name, age, birthday) VALUES ("Keanu Reeves", "57", "9-2-1964");
+INSERT INTO famous_people (name, age, birthday) VALUES ("Anne Hathaway", "39", "11-12-1982");
+INSERT INTO famous_people (name, age, birthday) VALUES ("Julie Andrews", "86", "10-1-1956");
+INSERT INTO famous_people (name, age, birthday) VALUES ("Jennifer Aniston", "53", "2-11-1969");
+
+
+CREATE TABLE accolades
+    (id INTEGER PRIMARY KEY AUTOINCREMENT,
+    highest_box_office_movie TEXT,
+    total_movies INTEGER,
+    total_awards_won INTEGER,
+    total_awards_nominated INTEGER);
+    
+INSERT INTO accolades (highest_box_office_movie, total_movies, total_awards_won, total_awards_nominated) VALUES ("The Dark Knight Rises", "111", "26", "49");
+INSERT INTO accolades (highest_box_office_movie, total_movies, total_awards_won, total_awards_nominated) VALUES ("Titanic", "49", "101", "259");
+INSERT INTO accolades (highest_box_office_movie, total_movies, total_awards_won, total_awards_nominated) VALUES ("The Matrix Reloaded", "81", "12", "29"); 
+INSERT INTO accolades (highest_box_office_movie, total_movies, total_awards_won, total_awards_nominated) VALUES ("Les Miserables", "46", "40", "101");
+INSERT INTO accolades (highest_box_office_movie, total_movies, total_awards_won, total_awards_nominated) VALUES ("The Sound of Music", "41", "67", "135"); 
+INSERT INTO accolades (highest_box_office_movie, total_movies, total_awards_won, total_awards_nominated) VALUES ("Bruce Almighty", "46", "36", "97");
+
+SELECT * FROM famous_people
+ORDER BY age; 
+
+SELECT * FROM accolades
+ORDER BY total_awards_won;
+
+SELECT * FROM famous_people
+LEFT OUTER JOIN accolades
+ON famous_people.id = accolades.id; 
