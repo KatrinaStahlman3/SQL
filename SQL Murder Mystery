@@ -1,0 +1,93 @@
+SQL MURDER MYSTERY
+#A crime has taken place and the detective needs your help. 
+The detective gave you the crime scene report, but you somehow lost it. 
+You vaguely remember that the crime was a ​murder​ that occurred sometime 
+on ​Jan.15, 2018​ and that it took place in ​SQL City​. Start by retrieving 
+the corresponding crime scene report from the police department’s database.
+
+#WHAT QUERIES I RAN IN ORDER TO SOLVE THE CRIME:
+
+SELECT * FROM crime_scene_report 
+WHERE type = 'murder' 
+AND city = 'SQL City'
+AND date = '20180115'
+
+SELECT * FROM person 
+WHERE name LIKE 'Annabel%' 
+AND address_street_name LIKE '%Franklin Ave%'
+ 
+SELECT * FROM person 
+WHERE address_street_name like '%Northwestern Dr%'
+ORDER BY address_number DESC 
+LIMIT 5
+ 
+SELECT * FROM person
+JOIN interview
+ON person.id = interview.person_id
+WHERE name = 'Morty Schapiro'
+ 
+SELECT * FROM get_fit_now_member
+WHERE membership_status = 'gold'
+AND id LIKE '48Z%'
+
+SELECT * FROM drivers_license
+WHERE plate_number LIKE '%H42W%'
+AND gender LIKE 'Male'
+ 
+SELECT * FROM person 
+JOIN interview
+ON person.id = interview.person_id
+WHERE name = 'Annabel Miller'
+ 
+SELECT * FROM get_fit_now_check_in
+WHERE check_in_date = '20180109'
+AND membership_id LIKE '48Z%'
+
+SELECT * FROM person
+JOIN drivers_license
+ON person.license_id = drivers_license.id
+WHERE drivers_license.plate_number LIKE '%H42W%'
+
+SELECT * FROM person
+JOIN interview
+ON person.id = interview.person_id
+WHERE name = 'Jeremy Bowers'
+
+INSERT INTO solution VALUES (1, 'Jeremy Bowers');
+        
+        SELECT value FROM solution;
+        
+        
+#Caught the killer correctly but now had to find the real villian 
+behind the crime
+ 
+SELECT * FROM person
+JOIN drivers_license
+ON person.license_id = drivers_license.id
+JOIN income
+ON person.ssn = income.ssn
+WHERE height BETWEEN '65' AND '67'
+AND hair_color = 'red'
+AND car_make = 'Tesla'
+AND car_model = 'Model S'
+
+SELECT * FROM person p 
+JOIN facebook_event_checkin fb
+ON p.id = fb.person_id
+JOIN drivers_license dl
+ON p.license_id = dl.id
+WHERE fb.date LIKE '201712%'
+AND fb.event_name = 'SQL Symphony Concert'
+AND dl.height BETWEEN '65' AND '67'
+AND dl.hair_color = 'red'
+AND dl.car_make = 'Tesla'
+AND dl.car_model = 'Model S'
+ 
+ 
+
+INSERT INTO solution VALUES (1, 'Miranda Priestly');
+        
+        SELECT value FROM solution;   
+        
+#Correctly found who was behind the murder. 
+
